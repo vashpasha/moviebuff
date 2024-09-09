@@ -28,6 +28,7 @@ INSTALLED_APPS = [
 
 
     'users',
+    'movies',
 ]
 
 MIDDLEWARE = [
@@ -153,3 +154,13 @@ SIMPLE_JWT = {
     "SLIDING_TOKEN_REFRESH_SERIALIZER": "rest_framework_simplejwt.serializers.TokenRefreshSlidingSerializer",
 }
 
+OMDB_API_KEY = os.getenv("OMDB_KEY")
+OMDB_BASE_URL = "http://www.omdbapi.com/"
+OMDB_POSTER_URL = "http://img.omdbapi.com/"
+
+CACHE = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        'LOCATION': 'unique-snowflake'
+    }
+}
