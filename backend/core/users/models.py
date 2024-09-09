@@ -4,7 +4,7 @@ from django.contrib.auth.models import AbstractUser, BaseUserManager
 
 class UserManager(BaseUserManager):
     
-    use_in_migration = True
+    use_in_migrations = True
 
     def create_user(self, email, password=None, **extra_fields):
         if not email:
@@ -37,6 +37,7 @@ class UserData(AbstractUser):
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
+    bio = models.TextField(max_length=250, blank=True)
     
     objects = UserManager()
     
