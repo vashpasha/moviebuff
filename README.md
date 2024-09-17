@@ -3,8 +3,12 @@
 backend:
     Django, DjangoRestFramework
 
-frontend:
-    React
+    user authorization with simplejwt\
+    movies data from free API OMDB
+    users can create review on movies, other users can like that reviews
 
-other:
-    PostgreSQL, Docker
+    to-do:
+        collections of movies
+        comments and saving for collections
+        subscribe on other users
+        ...
