@@ -23,8 +23,10 @@ class Review(models.Model):
     likes = models.PositiveIntegerField(default=0)
 
     class Meta:
+        db_table = 'reviews'
+        app_label = 'actions'
         constraints = [
-            models.UniqueConstraint(fields=['user', 'moie_id'], name='unique_review')
+            models.UniqueConstraint(fields=['user', 'movie_id'], name='unique_review')
         ]
 
     def save(self, *args, **kwargs):
@@ -51,6 +53,8 @@ class ReviewLike(models.Model):
     liked_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
+        db_table = 'reviewlikes'
+        app_label = 'actions'
         constraints = [
             models.UniqueConstraint(fields=['user', 'review'], name='unique_reviewlike')
         ]
